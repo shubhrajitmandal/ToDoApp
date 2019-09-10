@@ -1,19 +1,24 @@
 <h1>To Do App</h1>
-<h3>An Easy and Efficient Task Manager</h3>
+{{!-- <h3>An Easy and Efficient Task Manager</h3> --}}
 
-<form class="form" action="/todoList" method="POST">
+<form class="form" action="/" method="POST">
     <input name="task" autocomplete="off" placeholder="Add a task..." required />
     <button class="btn">Add</button>
 </form>
 
 <div class="container">
-    <ul class="list">
-        {{#each taskList}}
-        <li>
-            <span class="list-item">{{this}}</span>
-            <button class="edit">Edit</button>
-            <button class="delete">Delete</button>
-        </li>
-        {{/each}}
-    </ul>
+    <h3>TaskList</h3>
+    <hr />
+    {{#if taskList}}
+        <ul class="list">
+            {{#each taskList}}
+                <li id="{{id}}" class="list-item">
+                    <span> &middot {{task}}</span>
+                    <button class="edit">Edit</button>
+                    <button class="delete">Delete</button>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+
 </div>
